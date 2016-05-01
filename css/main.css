@@ -1,17 +1,17 @@
 
 /*******************1...begin the common style*******************************/
 html{
-	font-size: 62.5%;/**1rem=10px**/
+	font-size: 625%;/**1rem=10px**/
 }
 div.wrap{
-	width: 85rem;
-	height: 53rem;
-	background:url('../img/1.png') no-repeat 0;
-	margin: 2rem auto;
+	width: 8.5rem;
+	height: 5.3rem;
+	background:url('../img/2.png') no-repeat 0;
+	margin: 0.2rem auto;
 	position: relative;
 }
 div.bot{
-	height: 7rem;
+	height: 0.7rem;
 	width: 100%;
 	position: absolute;
 	bottom: 0;
@@ -21,23 +21,23 @@ div.bot div{
 	position: absolute;
 }
 div.left{
-	width: 34rem;
-	height: 46rem;
+	width: 3.4rem;
+	height: 4.6rem;
 	float: left;
 	position: relative;
 	/*outline: 1px solid red;*/
 }
 div.right{
-	width: 50rem;
-	height: 46rem;
+	width: 5.0rem;
+	height: 4.6rem;
 	float: left;
 	position: relative;
 	/*outline: 1px solid red;*/
 }
 div.pre,div.next,div.play-btn{
-	width: 5rem;
-	height: 5rem;
-	top: 1rem;
+	width: .5rem;
+	height: .5rem;
+	top: .1rem;
 }
 div.pre,div.next,div.play-btn, div.pro-btn,div.vol-btn,div.vol,div.up-down,ul.song-list li
 ,div.music-info{
@@ -50,103 +50,103 @@ div.pre , div.next{
 	border: 1px solid #fff;
 }
 div.pre{
-	left:3rem;
+	left:.3rem;
 	background: url('../img/pre.png');
 }
 div.next{
-	right:3rem;
+	right:.3rem;
 	background: url('../img/next.png');
 }
 div.play-btn{
-	left: 10rem;
+	left: 1rem;
 	background: url('../img/play.png') no-repeat 50% 50%;
 }
 div.progress{
-	width: 48rem;
-	height: 0.2rem;
+	width: 4.8rem;
+	height: 0.02rem;
 	background:#3ff;
-	top: 3.25rem;
-	left: 16rem;
+	top: .325rem;
+	left: 1.6rem;
 }
 div.progress div.pro-btn{
-	width: 1.4rem;
-	height: 1.4rem;
+	width: .14rem;
+	height: .14rem;
 	border-radius: 50%;
 	background: #fff;
-	top: -0.6rem;
+	top: -0.06rem;
 	-webkit-box-shadow:0 0 5px 5px #c3c;
 	-moz-box-shadow:   0 0 5px 5px #c3c;
 	box-shadow:        0 0 5px 5px #c3c;
 }
 div.vol{
-	width: 3rem;
-	height: 3rem;
+	width: .3rem;
+	height: .3rem;
 	position: absolute;
-	right: 10rem;
-	top: 1.6rem;
+	right: 1rem;
+	top: .16rem;
 	background:url("../img/vol.png") no-repeat 50% 50%;
 }
 div.vol-control{
-	width: 0.2rem;
-	height: 8rem;
+	width: 0.02rem;
+	height: .8rem;
 	background: #3ff;
 	position: absolute;
-	top: -9rem;
+	top: -.9rem;
 	display: none;
-	left: 1.1rem; /*margin: 0 auto don't work here ??why???*/
+	left: .11rem; /*margin: 0 auto don't work here ??why???*/
 }
 div.vol-btn{
-	width: 1.3rem;
-	height: 1.3rem;
+	width: .13rem;
+	height: .13rem;
 	border-radius: 50%;
 	background: #fff;
 	position: absolute;
-	top: 8rem;
-	left: -0.6rem;
+	top: .8rem;
+	left: -.06rem;
 	-webkit-box-shadow:0 0 5px 3px #3ff;
 	-moz-box-shadow:   0 0 5px 3px #3ff;
 	box-shadow:        0 0 5px 3px #3ff;
 }
 span.time{
-	width: 4rem;
-	height: 2rem;
-	line-height: 2rem;
+	width: .4rem;
+	height: .2rem;
+	line-height: .2rem;
 	text-align: center;
 	display: block;
 	position: absolute;
-	top: 2rem;
-	right: 16rem;
-	font-size: 1.8rem;
+	top: .2rem;
+	right: 1.6rem;
+	font-size: .18rem;
 	color: #fff;
 }
 /*******************2..the style of left div*******************************/
 /*******************2-1..the style of music information*******************************/
 div.left div.music-info{
-	width: 20rem;
-	height: 20rem;
+	width: 2rem;
+	height: 2rem;
 	border-radius: 50%;
-	border: 0.3rem solid #fff;
+	border: 0.03rem solid #fff;
 	position: absolute;
 	top:50%;
-	margin-top:-11rem;
-	left: 7.5rem;
+	margin-top:-1.1rem;
+	left: .75rem;
 	text-align: center;
-	font-size: 2.3rem;
+	font-size: .23rem;
 	color: #fff;
 }
 div.left div.music-info span{
 	display: block;
-	padding: 2rem 0 0 0 ;
+	padding: .2rem 0 0 0 ;
 	position: relative;
 	z-index: 1;
 }
 div.left div.music-info span.name{
-	margin-top:3rem;
+	margin-top:.3rem;
 }
 div.left div.music-info img {
 	position: absolute;
-	width: 20rem;
-	height: 20rem;
+	width: 2rem;
+	height: 2rem;
 	top: 0;
 	left: 0;
 	border-radius: 50%;
@@ -156,15 +156,15 @@ div.left div.music-info img {
 ul.song-list{
 	background: rgba(0, 0, 0, .7);
 	position: relative;
-	height: 43rem;
+	height: 4.3rem;
 	overflow-x: hidden;
 	display: none;
 	z-index: 10;
 }
 ul.song-list li{
 	display: block;
-	height: 5.5rem;
-	padding: 0.5rem 1rem;
+	height: .55rem;
+	padding: 0.05rem .1rem;
 	border-bottom:1px solid #fff;
 	position: relative;
 	-webkit-transition: background 0.5s;
@@ -183,12 +183,12 @@ ul.song-list li:hover{
 
 ul.song-list li span:not(.love){
 	display: block;
-	height: 3rem;
-	line-height: 3rem;
+	height: .3rem;
+	line-height: .3rem;
 	width: 70%;
-	font-size: 1.5rem;
+	font-size: .15rem;
 	color: #3ff;
-	padding-left: 2.5rem;
+	padding-left: .25rem;
 
 }
 span.list-name{
@@ -199,18 +199,18 @@ span.list-singer{
 }
 span.love{
 	display: block;
-	width:3rem;
-	height: 3rem;
+	width:.3rem;
+	height: .3rem;
 	position: absolute;
-	right: 2rem;
+	right: .2rem;
 	top: 50%;
-	margin-top: -1rem;
+	margin-top: -.1rem;
 	background: url("../img/love1.png") no-repeat 50% 50%;
 }
 /*******************2-3.the style of up and down arrow*******************************/
 div.up-down{
 	width: 100%;
-	height: 3rem;
+	height: .3rem;
 	border-top: 1px solid #fff;
 	border-bottom:1px solid #fff;
 	position: absolute;

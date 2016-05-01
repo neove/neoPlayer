@@ -6,6 +6,7 @@ $(function(){
        var media=$('#media')[0];
        var num=0;
        var song_num=data.length;
+       var audio_tiemr=null;
        //设置进度条和按钮
        dragX($('.pro-btn')[0],0,480);
        dragY($('.vol-btn')[0],0,80);
@@ -47,7 +48,7 @@ $(function(){
                    '-ms-transform '   :'rotate3d(1,0,0,180deg)',
                    '-o-transform  '   :'rotate3d(1,0,0,180deg)',
                    'transform     '   :'rotate3d(1,0,0,180deg)',
-                   'top':'43rem'
+                   'top':'4.3rem'
                })
            }
        });
@@ -68,7 +69,7 @@ $(function(){
        //前后按钮切换歌曲
        $('.pre').bind('click',function(){
            num--;
-           if(num==0)num=song_num;
+           if(num<=0)num=song_num-1;
            $('#media')[0].src=data[num%song_num].src;
            play();
            songLighter();
@@ -106,6 +107,7 @@ $(function(){
                    '-o-transition':     'transform 10000s linear',/*这里用rotate不行*/
                    'transition':        'transform 10000s linear',/*这里用rotate不行*/
                });
+           if(media.ended) stopRotate();
        }
        //停止css3动画
        function stopRotate() {
@@ -130,12 +132,27 @@ $(function(){
            playAudio();
        });
        function playAudio() {
+           var a, b,c;
            if(media.paused) {
                play();
                songInfo();
+               clearInterval(audio_tiemr);
+               audio_tiemr=setInterval(function(){
+                   //时间显示
+                   a=toTwo(Math.floor(media.currentTime/60));
+                   b=toTwo(Math.floor(media.currentTime%60));
+                   c=parseFloat(media.currentTime/media.duration)*480;
+                   $('.time').text(a+':'+b);
+                   $('.pro-btn').css('left',c);
+                   if(media.ended){
+                       stopRotate();
+                       clearInterval(audio_tiemr);
+                   };
+               },1000)
            } else {
                pause();
                stopRotate();
+               clearInterval(audio_tiemr);
            }
        }
        //播放
@@ -152,6 +169,30 @@ $(function(){
                'background': 'url("img/play.png") no-repeat 50% 50%'
            });
        }
+       function toTwo(a){
+           return a<10 ? '0'+a : ''+a;
+       }
+       //拖拽改变歌曲进度
+       $('.pro-btn').bind('mousedown',function(){
+           pause();
+       }).bind('mouseup',function(){
+           media.currentTime=$(this).offset().left/480*media.duration;
+           play();
+       });
+
+
+       /*******************test area**************/
+       $('#f').click(function(){
+           alert(media.duration)
+       });
+
+
+
+
+
+
+
+
 
 
 
