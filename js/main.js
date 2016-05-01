@@ -4,6 +4,8 @@
 $(function(){
    (function(window,document,$){
        var media=$('#media')[0];
+       var num=0;
+       var song_num=data.length;
        //设置进度条和按钮
        dragX($('.pro-btn')[0],0,480);
        dragY($('.vol-btn')[0],0,80);
@@ -12,6 +14,12 @@ $(function(){
        });
        $('.vol-control').bind('click', function () {
            return false;         //阻止冒泡
+       });
+
+       //设置歌曲列表信息
+       $('ul.song-list li').each(function(){
+           $(this).find('.list-name').text(data[$(this).index()].name);
+           $(this).find('.list-singer').text(data[$(this).index()].singer);
        });
 
        //设置歌曲列表的显示和隐藏
@@ -38,7 +46,34 @@ $(function(){
                })
            }
        });
+       //当前歌曲高亮
+       function songLighter(){
+           $('ul.song-list li').each(function(){
+               $(this).css({
+                   'background':'transparent'
+               });
+               if($(this).index()===num%song_num){
+                   $(this).css({
+                       'background':'rgba(255,255,255,0.4)'
+                   });
+               }
+           });
+       }
 
+       //前后按钮切换歌曲
+       $('.pre').bind('click',function(){
+           num--;
+           if(num<0)num=song_num;
+           $('#media')[0].src=data[num%song_num].src;
+           play();
+           songLighter();
+       });
+       $('.next').bind('click',function(){
+           num++;
+           $('#media')[0].src=data[num%song_num].src;
+           play();
+           songLighter();
+       });
 
        //绑定播放按钮
        $('.play-btn').bind('click',function(){
@@ -54,20 +89,31 @@ $(function(){
        //播放
        function play() {
            media.play();
-
+           $('.play-btn').css({
+              'background': 'url("img/pause.png") no-repeat 50% 50%'//这里的路径要注意！！
+           });
        }
        //暂停
        function pause() {
            media.pause();
-          
+           $('.play-btn').css({
+               'background': 'url("img/play.png") no-repeat 50% 50%'
+           });
        }
-
-
-
-
 
 
 
 
    })(window,document,jQuery);
+
+
+
+
+
+
+
+
+
+
+
 });

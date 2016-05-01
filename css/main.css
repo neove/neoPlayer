@@ -25,14 +25,14 @@ div.left{
 	height: 46rem;
 	float: left;
 	position: relative;
-	outline: 1px solid red;
+	/*outline: 1px solid red;*/
 }
 div.right{
 	width: 50rem;
 	height: 46rem;
 	float: left;
 	position: relative;
-	outline: 1px solid red;
+	/*outline: 1px solid red;*/
 }
 div.pre,div.next,div.play-btn{
 	width: 5rem;
@@ -58,7 +58,7 @@ div.next{
 }
 div.play-btn{
 	left: 10rem;
-	background: url('../img/play.png') no-repeat 50% 50%;
+	background: url('../img/pause.png') no-repeat 50% 50%;
 }
 div.progress{
 	width: 48rem;
@@ -142,7 +142,7 @@ div.left div.music-info span.name{
 }
 /*******************2-2..the style of song list*******************************/
 ul.song-list{
-	background: rgba(0, 0, 0, .5);
+	background: rgba(0, 0, 0, .7);
 	position: relative;
 	height: 43rem;
 	overflow-x: hidden;
@@ -154,6 +154,11 @@ ul.song-list li{
 	padding: 0.5rem 1rem;
 	border-bottom:1px solid #fff;
 	position: relative;
+	-webkit-transition: background 0.5s;
+	-moz-transition: background    0.5s;
+	-ms-transition: background     0.5s;
+	-o-transition: background      0.5s;
+	transition: background         0.5s;
 }
 ul.song-list li span:not(.love){
 	display: block;
