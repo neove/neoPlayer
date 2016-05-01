@@ -15,7 +15,7 @@ div.bot{
 	width: 100%;
 	position: absolute;
 	bottom: 0;
-	outline: 1px solid red;
+
 }
 div.bot div{
 	position: absolute;
@@ -39,7 +39,7 @@ div.pre,div.next,div.play-btn{
 	height: 5rem;
 	top: 1rem;
 }
-div.pre,div.next,div.play-btn, div.pro-btn,div.vol-btn{
+div.pre,div.next,div.play-btn, div.pro-btn,div.vol-btn,div.vol,div.up-down{
 	cursor: pointer;
 }
 
@@ -73,9 +73,9 @@ div.progress div.pro-btn{
 	border-radius: 50%;
 	background: #fff;
 	top: -0.6rem;
-	-webkit-box-shadow:0 0 5px 3px #c3c;
-	-moz-box-shadow:   0 0 5px 3px #c3c;
-	box-shadow:        0 0 5px 3px #c3c;
+	-webkit-box-shadow:0 0 5px 5px #c3c;
+	-moz-box-shadow:   0 0 5px 5px #c3c;
+	box-shadow:        0 0 5px 5px #c3c;
 }
 div.vol{
 	width: 3rem;
@@ -91,6 +91,7 @@ div.vol-control{
 	background: #3ff;
 	position: absolute;
 	top: -9rem;
+	display: none;
 	left: 1.1rem; /*margin: 0 auto don't work here ??why???*/
 }
 div.vol-btn{
@@ -110,7 +111,6 @@ span.time{
 	height: 2rem;
 	line-height: 2rem;
 	text-align: center;
-	border: 1px solid #fff;
 	display: block;
 	position: absolute;
 	top: 2rem;
@@ -144,11 +144,9 @@ div.left div.music-info span.name{
 ul.song-list{
 	background: rgba(0, 0, 0, .5);
 	position: relative;
-	outline: 1px solid red;
 	height: 43rem;
-	overflow: scroll;
 	overflow-x: hidden;
-
+	display: none;
 }
 ul.song-list li{
 	display: block;
@@ -190,10 +188,15 @@ div.up-down{
 	border-top: 1px solid #fff;
 	border-bottom:1px solid #fff;
 	position: absolute;
+	top: 0;
 	-webkit-box-shadow: inset 0 0 5px 2px rgba(102,0,102,0.5);
 	-moz-box-shadow: inset 0 0 5px 2px    rgba(102,0,102,0.5);
 	box-shadow: inset 0 0 5px 2px         rgba(102,0,102,0.5);
-	bottom: 0;
 	background: url("../img/up-down.png") no-repeat 50% 50%;
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	-ms-transition: all 0.6s;
+	-o-transition: all 0.6s;
+	transition: all 0.6s;
 }
 
