@@ -21,7 +21,7 @@ div.bot div{
 	position: absolute;
 }
 div.left{
-	width: 35rem;
+	width: 34rem;
 	height: 46rem;
 	float: left;
 	position: relative;
@@ -39,7 +39,8 @@ div.pre,div.next,div.play-btn{
 	height: 5rem;
 	top: 1rem;
 }
-div.pre,div.next,div.play-btn, div.pro-btn,div.vol-btn,div.vol,div.up-down{
+div.pre,div.next,div.play-btn, div.pro-btn,div.vol-btn,div.vol,div.up-down,ul.song-list li
+,div.music-info{
 	cursor: pointer;
 }
 
@@ -58,7 +59,7 @@ div.next{
 }
 div.play-btn{
 	left: 10rem;
-	background: url('../img/pause.png') no-repeat 50% 50%;
+	background: url('../img/play.png') no-repeat 50% 50%;
 }
 div.progress{
 	width: 48rem;
@@ -136,17 +137,29 @@ div.left div.music-info{
 div.left div.music-info span{
 	display: block;
 	padding: 2rem 0 0 0 ;
+	position: relative;
+	z-index: 1;
 }
 div.left div.music-info span.name{
 	margin-top:3rem;
 }
-/*******************2-2..the style of song list*******************************/
+div.left div.music-info img {
+	position: absolute;
+	width: 20rem;
+	height: 20rem;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	z-index: 0;
+}
+	/*******************2-2..the style of song list*******************************/
 ul.song-list{
 	background: rgba(0, 0, 0, .7);
 	position: relative;
 	height: 43rem;
 	overflow-x: hidden;
 	display: none;
+	z-index: 10;
 }
 ul.song-list li{
 	display: block;
@@ -160,12 +173,20 @@ ul.song-list li{
 	-o-transition: background      0.5s;
 	transition: background         0.5s;
 }
+ul.song-list li:hover{
+	-webkit-box-shadow: inset 0 0 5px 5px rgba(51,153,255, 0.5);
+	-moz-box-shadow:    inset 0 0 5px 5px rgba(51,153,255, 0.5);
+	box-shadow:         inset 0 0 5px 5px rgba(51,153,255, 0.5);
+
+}
+
+
 ul.song-list li span:not(.love){
 	display: block;
 	height: 3rem;
 	line-height: 3rem;
 	width: 70%;
-	font-size: 1.7rem;
+	font-size: 1.5rem;
 	color: #3ff;
 	padding-left: 2.5rem;
 
@@ -194,9 +215,9 @@ div.up-down{
 	border-bottom:1px solid #fff;
 	position: absolute;
 	top: 0;
-	-webkit-box-shadow: inset 0 0 5px 2px rgba(102,0,102,0.5);
-	-moz-box-shadow: inset 0 0 5px 2px    rgba(102,0,102,0.5);
-	box-shadow: inset 0 0 5px 2px         rgba(102,0,102,0.5);
+	-webkit-box-shadow: inset 0 0 5px 5px rgba(102,0,102,0.5);
+	-moz-box-shadow:    inset 0 0 5px 5px    rgba(102,0,102,0.5);
+	box-shadow:         inset 0 0 5px 5px         rgba(102,0,102,0.5);
 	background: url("../img/up-down.png") no-repeat 50% 50%;
 	-webkit-transition: all 0.6s;
 	-moz-transition: all 0.6s;

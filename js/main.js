@@ -15,13 +15,18 @@ $(function(){
        $('.vol-control').bind('click', function () {
            return false;         //阻止冒泡
        });
+       //一些初始化操作
+       songLighter();
+       $('#media')[0].src=data[0].src;
+       $('.music-info .name').text(data[0].name);
+       $('.music-info .singer').text(data[0].singer);
+       $('.music-info img').attr('src',data[0].songbg);
 
        //设置歌曲列表信息
        $('ul.song-list li').each(function(){
            $(this).find('.list-name').text(data[$(this).index()].name);
            $(this).find('.list-singer').text(data[$(this).index()].singer);
        });
-
        //设置歌曲列表的显示和隐藏
        $('.up-down').bind('click', function(){
            if($('.song-list').is(':visible')){
@@ -63,27 +68,74 @@ $(function(){
        //前后按钮切换歌曲
        $('.pre').bind('click',function(){
            num--;
-           if(num<0)num=song_num;
+           if(num==0)num=song_num;
            $('#media')[0].src=data[num%song_num].src;
            play();
            songLighter();
+           songInfo();
        });
        $('.next').bind('click',function(){
            num++;
            $('#media')[0].src=data[num%song_num].src;
            play();
            songLighter();
+           songInfo();
        });
-
+       //歌曲列表的点击事件
+       $('ul.song-list li').bind('click',function(){
+           num=$(this).index();
+           $('#media')[0].src=data[num%song_num].src;
+           play();
+           songLighter();
+           songInfo();
+       });
+       //歌曲信息更新
+       function songInfo(){
+           $('.music-info .name').text(data[num%song_num].name);
+           $('.music-info .singer').text(data[num%song_num].singer);
+           $('.music-info img').attr('src',data[num%song_num].songbg)
+               .css({
+                   '-webkit-transform':'rotate(360000deg)',
+                   '-moz-transform':   'rotate(360000deg)',
+                   '-ms-transform':    'rotate(360000deg)',
+                   '-o-transform':     'rotate(360000deg)',
+                   'transform':        'rotate(360000deg)',
+                   '-webkit-transition':'transform 10000s linear',/*这里用rotate不行*/
+                   '-moz-transition':   'transform 10000s linear',/*这里用rotate不行*/
+                   '-ms-transition':    'transform 10000s linear',/*这里用rotate不行*/
+                   '-o-transition':     'transform 10000s linear',/*这里用rotate不行*/
+                   'transition':        'transform 10000s linear',/*这里用rotate不行*/
+               });
+       }
+       //停止css3动画
+       function stopRotate() {
+           $('.music-info img').css({
+               '-webkit-transform': 'rotate(0deg)',
+               '-moz-transform':    'rotate(0deg)',
+               '-ms-transform':     'rotate(0deg)',
+               '-o-transform':      'rotate(0deg)',
+               'transform':         'rotate(0deg)',
+               '-webkit-transition': 'transform 0s linear',
+               '-moz-transition': 'transform 0s linear',
+               '-ms-transition': 'transform 0s linear',
+               '-o-transition': 'transform 0s linear',
+               'transition': 'transform 0s linear',
+           });
+       }
        //绑定播放按钮
        $('.play-btn').bind('click',function(){
+           playAudio();
+       });
+       $('.music-info').bind('click',function(){
            playAudio();
        });
        function playAudio() {
            if(media.paused) {
                play();
+               songInfo();
            } else {
                pause();
+               stopRotate();
            }
        }
        //播放
