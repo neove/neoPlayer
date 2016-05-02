@@ -3,12 +3,18 @@
 html{
 	font-size: 625%;/**1rem=10px**/
 }
+body{
+	font-family: Tahoma, Verdana, sans-serif;
+}
 div.wrap{
 	width: 8.5rem;
 	height: 5.3rem;
 	background:url('../img/2.png') no-repeat 0;
-	margin: 0.2rem auto;
+	margin: .3rem auto;
 	position: relative;
+	-webkit-box-shadow: 0 0 18px 7px rgba(153, 0, 0, .4);
+	-moz-box-shadow:    0 0 18px 7px rgba(153, 0, 0, .4);
+	box-shadow:         0 0 18px 7px rgba(153, 0, 0, .4);
 }
 div.bot{
 	height: 0.7rem;
@@ -28,34 +34,38 @@ div.left{
 	/*outline: 1px solid red;*/
 }
 div.right{
-	width: 5.0rem;
-	height: 4.6rem;
+	width: 4.3rem;
+	height: 3.5rem;
 	float: left;
 	position: relative;
+	margin-top: .4rem;
+	padding: 0 .35rem;
+	/*border: 1px solid yellow;*/
+	overflow: hidden;
 	/*outline: 1px solid red;*/
 }
 div.pre,div.next,div.play-btn{
-	width: .5rem;
-	height: .5rem;
-	top: .1rem;
+	width: .36rem;
+	height: .36rem;
+	top: .05rem;
 }
-div.pre,div.next,div.play-btn, div.pro-btn,div.vol-btn,div.vol,div.up-down,ul.song-list li
-,div.music-info{
+div.pre,div.next,div.play-btn, div.pro-btn,div.vol-btn,div.vol,div.up-down,ul.song-list li span
+,div.music-info,div.progress{
 	cursor: pointer;
 }
 
 /*******************2...the style of bottom div*******************************/
 div.pre , div.next{
 	border-radius: 50%;
-	border: 1px solid #fff;
+	border: 2px solid #fff;
 }
 div.pre{
 	left:.3rem;
-	background: url('../img/pre.png');
+	background: url('../img/pre.png') no-repeat 50% 50%;
 }
 div.next{
 	right:.3rem;
-	background: url('../img/next.png');
+	background: url('../img/next.png') no-repeat 50% 50%;;
 }
 div.play-btn{
 	left: 1rem;
@@ -64,8 +74,8 @@ div.play-btn{
 div.progress{
 	width: 4.8rem;
 	height: 0.02rem;
-	background:#3ff;
-	top: .325rem;
+	background:#fff;
+	top: .25rem;
 	left: 1.6rem;
 }
 div.progress div.pro-btn{
@@ -78,12 +88,20 @@ div.progress div.pro-btn{
 	-moz-box-shadow:   0 0 5px 5px #c3c;
 	box-shadow:        0 0 5px 5px #c3c;
 }
+div.progress div.pro-line{
+	height: 0.02rem;
+	position: absolute;
+	left: 0;
+	background:#3ff;
+}
+
+/******“Ù¡ø********/
 div.vol{
 	width: .3rem;
 	height: .3rem;
 	position: absolute;
-	right: 1rem;
-	top: .16rem;
+	right: 1.2rem;
+	top: .09rem;
 	background:url("../img/vol.png") no-repeat 50% 50%;
 }
 div.vol-control{
@@ -101,7 +119,6 @@ div.vol-btn{
 	border-radius: 50%;
 	background: #fff;
 	position: absolute;
-	top: .8rem;
 	left: -.06rem;
 	-webkit-box-shadow:0 0 5px 3px #3ff;
 	-moz-box-shadow:   0 0 5px 3px #3ff;
@@ -114,7 +131,7 @@ span.time{
 	text-align: center;
 	display: block;
 	position: absolute;
-	top: .2rem;
+	top: .15rem;
 	right: 1.6rem;
 	font-size: .18rem;
 	color: #fff;
@@ -139,6 +156,7 @@ div.left div.music-info span{
 	padding: .2rem 0 0 0 ;
 	position: relative;
 	z-index: 1;
+	text-shadow: 0 0 2px #6ff;
 }
 div.left div.music-info span.name{
 	margin-top:.3rem;
@@ -168,10 +186,10 @@ ul.song-list li{
 	border-bottom:1px solid #fff;
 	position: relative;
 	-webkit-transition: background 0.5s;
-	-moz-transition: background    0.5s;
-	-ms-transition: background     0.5s;
-	-o-transition: background      0.5s;
-	transition: background         0.5s;
+	-moz-transition:    background    0.5s;
+	-ms-transition:     background     0.5s;
+	-o-transition:      background      0.5s;
+	transition:         background         0.5s;
 }
 ul.song-list li:hover{
 	-webkit-box-shadow: inset 0 0 5px 5px rgba(51,153,255, 0.5);
@@ -185,7 +203,7 @@ ul.song-list li span:not(.love){
 	display: block;
 	height: .3rem;
 	line-height: .3rem;
-	width: 70%;
+	width: 50%;
 	font-size: .15rem;
 	color: #3ff;
 	padding-left: .25rem;
@@ -214,7 +232,7 @@ div.up-down{
 	border-top: 1px solid #fff;
 	border-bottom:1px solid #fff;
 	position: absolute;
-	top: 0;
+	top: -.01rem;
 	-webkit-box-shadow: inset 0 0 5px 5px rgba(102,0,102,0.5);
 	-moz-box-shadow:    inset 0 0 5px 5px    rgba(102,0,102,0.5);
 	box-shadow:         inset 0 0 5px 5px         rgba(102,0,102,0.5);
@@ -224,5 +242,35 @@ div.up-down{
 	-ms-transition: all 0.6s;
 	-o-transition: all 0.6s;
 	transition: all 0.6s;
+}
+
+/*******************3 the style of lyric list*******************************/
+ul.lrc-list{
+	width: 4.3rem;
+	height: 3.9rem;
+	/*border: 1px solid red;*/
+	font-size: .2rem;
+	-webkit-transition: margin-top .6s;
+	-moz-transition:    margin-top .6s;
+	-ms-transition:     margin-top .6s;
+	-o-transition:      margin-top .6s;
+	transition:         margin-top .6s;
+}
+ul.lrc-list li{
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+	height: .35rem;
+	line-height: .35rem;
+	color: #fff;
+	-webkit-transition: all  .6s;
+	-moz-transition:    all  .6s;
+	-ms-transition:     all  .6s;
+	-o-transition:      all  .6s;
+	transition:         all  .6s;
+}
+ul.lrc-list li.curr{
+	color: #f93;
+	text-shadow:0 0 2px #c0f;
 }
 
